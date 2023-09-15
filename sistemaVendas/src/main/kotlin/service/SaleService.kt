@@ -67,7 +67,7 @@ class SaleService {
         }
     }
 
-    fun deleteSale(id: String) {
+    fun deleteSale(id: Long) {
         try {
             statement.executeUpdate("DELETE FROM sales WHERE sale_id = $id")
             println("\nVenda deletada com sucesso")
@@ -76,7 +76,7 @@ class SaleService {
         }
     }
 
-    fun saleIdExists(id: String): Boolean {
+    fun saleIdExists(id: Long): Boolean {
         val sql = "SELECT * FROM sales WHERE sale_id = $id"
         return try {
             val resultSet = statement.executeQuery(sql)

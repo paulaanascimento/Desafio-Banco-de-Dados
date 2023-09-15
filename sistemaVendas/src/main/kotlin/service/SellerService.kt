@@ -60,7 +60,7 @@ class SellerService {
 
     fun deleteSeller(cpf: String) {
         try {
-            statement.executeUpdate("DELETE FROM sellers WHERE cpf = $cpf")
+            statement.executeUpdate("DELETE FROM sellers WHERE cpf = '$cpf'")
             println("\nVendedor deletado com sucesso")
         } catch (e: SQLException) {
             println(e.message)
@@ -68,7 +68,7 @@ class SellerService {
     }
 
     fun sellerCpfExists(cpf: String): Boolean {
-        val sql = "SELECT * FROM sellers WHERE cpf = $cpf"
+        val sql = "SELECT * FROM sellers WHERE cpf = '$cpf'"
         return try {
             val resultSet = statement.executeQuery(sql)
             resultSet != null && resultSet.next()

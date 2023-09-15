@@ -1,7 +1,7 @@
 package model
 
 class Seller(val cpf: String) {
-    lateinit var name: String
-    lateinit var email: String
+    var name: String? = null
+    var email: String? = null
     var salary: Double? = null
 }

@@ -60,7 +60,7 @@ class ClientService {
 
     fun deleteClient(cpf: String) {
         try {
-            statement.executeUpdate("DELETE FROM clients WHERE cpf = $cpf")
+            statement.executeUpdate("DELETE FROM clients WHERE cpf = '$cpf'")
             println("\nCliente deletado com sucesso")
         } catch (e: SQLException) {
             println(e.message)
@@ -68,7 +68,7 @@ class ClientService {
     }
 
     fun clientCpfExists(cpf: String): Boolean {
-        val sql = "SELECT * FROM clients WHERE cpf = $cpf"
+        val sql = "SELECT * FROM clients WHERE cpf = '$cpf'"
         return try {
             val resultSet = statement.executeQuery(sql)
             resultSet != null && resultSet.next()

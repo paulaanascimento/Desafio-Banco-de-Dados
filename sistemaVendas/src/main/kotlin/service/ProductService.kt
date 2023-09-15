@@ -56,7 +56,7 @@ class ProductService {
         }
     }
 
-    fun deleteProduct(id: String) {
+    fun deleteProduct(id: Long) {
         try {
             statement.executeUpdate("DELETE FROM products WHERE product_id = $id")
             println("\nProduto deletado com sucesso")
@@ -65,7 +65,7 @@ class ProductService {
         }
     }
 
-    fun productIdExists(id: String): Boolean {
+    fun productIdExists(id: Long): Boolean {
         val sql = "SELECT * FROM products WHERE product_id = $id"
         return try {
             val resultSet = statement.executeQuery(sql)
